@@ -1,9 +1,13 @@
 namespace APBD_TASK2.Users;
 
-public class Student(string Name, string Surname)
+public abstract class Student : User
 {
-    
-    public string Name { get; set; }
-    public string Surname { get; set; }
-    
+    public override int MaxActiveRental => 2;
+
+    public Student(int id, string name, string surname) 
+        : base(id, name, surname)
+    {
+        
+        
+    }
 }
