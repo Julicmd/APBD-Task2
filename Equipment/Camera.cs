@@ -6,7 +6,7 @@ public class Camera : Equipment
     public string LensType{get; set;}
 
     public Camera(int id, string name, string model, string lensType)
-    : base(id, name)
+    : base(name)
     {
         Model = model;
         LensType = lensType;

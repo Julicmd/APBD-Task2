@@ -1,29 +1,32 @@
+using APBD_TASK2.Enum;
+
 namespace APBD_TASK2.Equipment;
 
 public abstract class Equipment
 {
     private static int _nextId = 1; 
         
-    public int Id { get; } = _nextId++;
+    public int Id { get; } 
     public string Name{ get; set; }
+    
+    public EquipmentStatus Status{ get; private set; } = EquipmentStatus.Available;
 
-    public bool Available { get; private set; } = true;
-
-    public Equipment(int id, string name)
+    public Equipment(string name)
     {
-        Id = id;
+        Id = _nextId++;
         Name = name;
     }
     
-    public void EquipAvailable()
+    public void SetAvailable()
     {
-        Available = true;
+        Status = EquipmentStatus.Available;
+    }
+
+    public void SetUnavailable()
+    {
+        Status = EquipmentStatus.Unavailable;
     }
     
-    public void EuipUnavailable()
-    {
-        Available = false;
-    }
 
 
 }
