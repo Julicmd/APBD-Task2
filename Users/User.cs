@@ -4,7 +4,7 @@ public abstract class User
 {
     private static int _createid = 1; 
     
-    public int Id { get; set; } = _createid++;
+    public int Id { get; set; } 
     public string Name { get; set; }
     public string Surname { get; set; }
     
@@ -12,7 +12,7 @@ public abstract class User
 
     public User(int id, string name, string surname)
     {
-        Id = id;
+        Id = _createid++;
         Name = name;
         Surname = surname;
     }

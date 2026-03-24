@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using APBD_TASK2.Rentals;
 
 namespace APBD_TASK2.Interfaces;
