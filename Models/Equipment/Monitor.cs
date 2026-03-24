@@ -1,4 +1,4 @@
-namespace APBD_TASK2.Equipment;
+namespace APBD_TASK2.Models.Equipment;
 
 public class Monitor : Equipment
 {

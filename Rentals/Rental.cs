@@ -1,6 +1,8 @@
-namespace APBD_TASK2.Rentals;
-using APBD_TASK2.Equipment;
+
 using APBD_TASK2.Users;
+using APBD_TASK2.Models.Equipment;
+
+namespace APBD_TASK2.Rentals;
 
 public class Rental
 {
