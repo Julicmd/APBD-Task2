@@ -56,11 +56,38 @@ public class RentalService : IRentalService
 
     public int ReturnEquipment(int equipmentId, DateTime returnDate)
     {
-        Rental? active
+        Rental? activeRental = _rentals.FirstOrDefault(r => r.Equipment.Id == equipmentId && r.IsActive);
+        if (activeRental == null)
+        {
+            throw new InvalidOperationException("Active rental for this equipment was not found: " + equipmentId);
+        }
+        int penalty = CalculatePenalty(activeRental.DueDate, returnDate);
+        activeRental.CompleteReturn(returnDate, penalty);
+        activeRental.Equipment.SetAvailable();
         
+        
+        return penalty;
     }
 
 
+    public List<Rental> GetActviteRentalsForUsers(int userId)
+    {
+        return _rentals.Where(r => r.User.Id == userId && r.IsActive).ToList();
+    }
+
+    public List<Rental> GetAllRentals()
+    {
+        return _rentals;
+    }
+
+    public List<Rental> GetOverDueRentals()
+    {
+        return _rentals.Where(r => r.IsActive && r.DueDate < DateTime.Now)
+            .ToList();
+    }
+    
+    
+    
     private bool IsEquipmentsAvailable(Equipment equipment)
     {
         return equipment.Status == EquipmentStatus.Available;
