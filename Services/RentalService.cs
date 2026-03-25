@@ -33,7 +33,7 @@ public class RentalService : IRentalService
             throw new InvalidOperationException("Equipment not found ");
         }
 
-        if (!IsEquipmentsAvailable(equipment))
+        if (!IsEquipmentAvailable(equipment))
         {
             throw new InvalidOperationException("Equipment is not available for renting");
         }
@@ -88,7 +88,7 @@ public class RentalService : IRentalService
     
     
     
-    private bool IsEquipmentsAvailable(Equipment equipment)
+    private bool IsEquipmentAvailable(Equipment equipment)
     {
         return equipment.Status == EquipmentStatus.Available;
     }
@@ -103,6 +103,5 @@ public class RentalService : IRentalService
         int lateReturn = (returnDate.Date - dueDate.Date).Days;
         return lateReturn * 10;
     }
-
-
+    
 }
