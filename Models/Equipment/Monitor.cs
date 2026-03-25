@@ -6,8 +6,8 @@ public class Monitor : Equipment
     public string Resolution{get; set;}
 
 
-    public Monitor(string name, int screenSize, string resolution)
-        : base(name)
+    public Monitor(int id, string name, int screenSize, string resolution)
+        : base(id, name)
     {
         ScreenSize = screenSize;
         Resolution = resolution;

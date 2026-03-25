@@ -5,8 +5,8 @@ public class Laptop : Equipment
     public string OperatingSystem {get;  set;}
     
     
-    public Laptop( string name, string operatingSystem)
-    : base(name)
+    public Laptop( int id, string name, string operatingSystem)
+    : base(id,name)
     {
         OperatingSystem = operatingSystem;
     }

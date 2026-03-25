@@ -4,16 +4,15 @@ namespace APBD_TASK2.Models.Equipment;
 
 public abstract class Equipment
 {
-    private static int _nextId = 1; 
-        
+    
     public int Id { get; } 
     public string Name{ get; set; }
     
     public EquipmentStatus Status{ get; private set; } = EquipmentStatus.Available;
 
-    public Equipment(string name)
+    public Equipment(int id, string name)
     {
-        Id = _nextId++;
+        Id = id;
         Name = name;
     }
     
