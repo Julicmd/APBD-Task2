@@ -103,5 +103,4 @@ public class RentalService : IRentalService
         int lateReturn = (returnDate.Date - dueDate.Date).Days;
         return lateReturn * 10;
     }
-    
 }

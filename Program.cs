@@ -8,6 +8,9 @@ using Monitor = APBD_TASK2.Models.Equipment.Monitor;
 
 var db = Singleton.Instance;
 
+
+
+
 var users = new List<User>();
 var equipment = new List<Equipment>();
 
